@@ -138,19 +138,19 @@ export function Astronaut(props) {
   const { nodes, materials, animations } = useGLTF("/Murali_portfolio.github.io/models/tenhun_falling_spaceman_fanart.glb");
   const { actions } = useAnimations(animations, group);
 
-  // Play animation if available
   useEffect(() => {
     if (animations.length > 0) {
       actions[animations[0].name]?.play();
     }
   }, [actions, animations]);
 
-  // Add floating and rotation animation
+  // Animate position Y (float), rotation X (tilt), and rotation Y (spin)
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime();
     if (group.current) {
-      group.current.position.y = -1 + Math.sin(t * 2) * 0.2; // vertical float
-      group.current.rotation.x = Math.sin(t) * 0.2;           // up-down tilt
+      group.current.position.y = -1 + Math.sin(t * 2) * 0.2;   // up-down bounce
+      group.current.rotation.x = Math.sin(t) * 0.2;            // tilt up/down
+      group.current.rotation.y = Math.sin(t * 0.5) * 0.5;      // slow left/right spin
     }
   });
 
@@ -168,67 +168,17 @@ export function Astronaut(props) {
           <group name="Root">
             <group name="metarig">
               <primitive object={nodes.metarig_rootJoint} />
-              <skinnedMesh
-                name="Cube001_0"
-                geometry={nodes.Cube001_0.geometry}
-                material={materials["AstronautFallingTexture.png"]}
-                skeleton={nodes.Cube001_0.skeleton}
-              />
-              <skinnedMesh
-                name="Cube005_0"
-                geometry={nodes.Cube005_0.geometry}
-                material={materials["AstronautFallingTexture.png"]}
-                skeleton={nodes.Cube005_0.skeleton}
-              />
-              <skinnedMesh
-                name="Cube002_0"
-                geometry={nodes.Cube002_0.geometry}
-                material={materials["AstronautFallingTexture.png"]}
-                skeleton={nodes.Cube002_0.skeleton}
-              />
-              <skinnedMesh
-                name="Plane_0"
-                geometry={nodes.Plane_0.geometry}
-                material={materials["AstronautFallingTexture.png"]}
-                skeleton={nodes.Plane_0.skeleton}
-              />
-              <skinnedMesh
-                name="Cube008_0"
-                geometry={nodes.Cube008_0.geometry}
-                material={materials["AstronautFallingTexture.png"]}
-                skeleton={nodes.Cube008_0.skeleton}
-              />
-              <skinnedMesh
-                name="Cube004_0"
-                geometry={nodes.Cube004_0.geometry}
-                material={materials["AstronautFallingTexture.png"]}
-                skeleton={nodes.Cube004_0.skeleton}
-              />
-              <skinnedMesh
-                name="Cube003_0"
-                geometry={nodes.Cube003_0.geometry}
-                material={materials["AstronautFallingTexture.png"]}
-                skeleton={nodes.Cube003_0.skeleton}
-              />
-              <skinnedMesh
-                name="Cube_0"
-                geometry={nodes.Cube_0.geometry}
-                material={materials["AstronautFallingTexture.png"]}
-                skeleton={nodes.Cube_0.skeleton}
-              />
-              <skinnedMesh
-                name="Cube009_0"
-                geometry={nodes.Cube009_0.geometry}
-                material={materials["AstronautFallingTexture.png"]}
-                skeleton={nodes.Cube009_0.skeleton}
-              />
-              <skinnedMesh
-                name="Cube011_0"
-                geometry={nodes.Cube011_0.geometry}
-                material={materials["AstronautFallingTexture.png"]}
-                skeleton={nodes.Cube011_0.skeleton}
-              />
-              {/* Optional: groups with transforms */}
+              <skinnedMesh name="Cube001_0" geometry={nodes.Cube001_0.geometry} material={materials["AstronautFallingTexture.png"]} skeleton={nodes.Cube001_0.skeleton} />
+              <skinnedMesh name="Cube005_0" geometry={nodes.Cube005_0.geometry} material={materials["AstronautFallingTexture.png"]} skeleton={nodes.Cube005_0.skeleton} />
+              <skinnedMesh name="Cube002_0" geometry={nodes.Cube002_0.geometry} material={materials["AstronautFallingTexture.png"]} skeleton={nodes.Cube002_0.skeleton} />
+              <skinnedMesh name="Plane_0" geometry={nodes.Plane_0.geometry} material={materials["AstronautFallingTexture.png"]} skeleton={nodes.Plane_0.skeleton} />
+              <skinnedMesh name="Cube008_0" geometry={nodes.Cube008_0.geometry} material={materials["AstronautFallingTexture.png"]} skeleton={nodes.Cube008_0.skeleton} />
+              <skinnedMesh name="Cube004_0" geometry={nodes.Cube004_0.geometry} material={materials["AstronautFallingTexture.png"]} skeleton={nodes.Cube004_0.skeleton} />
+              <skinnedMesh name="Cube003_0" geometry={nodes.Cube003_0.geometry} material={materials["AstronautFallingTexture.png"]} skeleton={nodes.Cube003_0.skeleton} />
+              <skinnedMesh name="Cube_0" geometry={nodes.Cube_0.geometry} material={materials["AstronautFallingTexture.png"]} skeleton={nodes.Cube_0.skeleton} />
+              <skinnedMesh name="Cube009_0" geometry={nodes.Cube009_0.geometry} material={materials["AstronautFallingTexture.png"]} skeleton={nodes.Cube009_0.skeleton} />
+              <skinnedMesh name="Cube011_0" geometry={nodes.Cube011_0.geometry} material={materials["AstronautFallingTexture.png"]} skeleton={nodes.Cube011_0.skeleton} />
+              {/* Optional groups */}
               <group name="Cube001" />
               <group name="Cube005" />
               <group name="Cube002" />
@@ -237,11 +187,7 @@ export function Astronaut(props) {
               <group name="Cube004" />
               <group name="Cube003" />
               <group name="Cube" />
-              <group
-                name="Cube009"
-                rotation={[-2.708, 0.013, -1.447]}
-                scale={1.307}
-              />
+              <group name="Cube009" rotation={[-2.708, 0.013, -1.447]} scale={1.307} />
               <group name="Cube011" />
             </group>
           </group>
@@ -252,4 +198,3 @@ export function Astronaut(props) {
 }
 
 useGLTF.preload("/Murali_portfolio.github.io/models/tenhun_falling_spaceman_fanart.glb");
-
