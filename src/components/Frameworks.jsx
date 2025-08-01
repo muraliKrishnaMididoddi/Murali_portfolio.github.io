@@ -43,13 +43,11 @@ import { OrbitingCircles } from "./OrbitingCircles";
 
 export function Frameworks() {
   const skills = [
-    "auth0",
+    
     "azure-original-wordmark",
     "azure",
     "bash-plain",
-    "bitbucket-original-wordmark",
-    "blazor-pink",
-    "blazor",
+    "bitbucket-original-wordmark",  
     "bootstrap-original-wordmark",
     "cplusplus",
     "csharp-pink",
@@ -57,11 +55,7 @@ export function Frameworks() {
     "css3",
     "django-plain-wordmark",
     "docker-original-wordmark",
-    "dotnet-pink",
-    "dotnet",
-    "dotnetcore",
     "eclipse-original-wordmark",
-    "efcore",
     "fastapi-original-wordmark",
     "git-original-wordmark",
     "git",
@@ -79,9 +73,7 @@ export function Frameworks() {
     "mongodb-original-wordmark",
     "react",
     "sqlite",
-    "stripe",
     "tailwindcss",
-    "threejs",
     "visualstudiocode",
     "vitejs",
   ];
