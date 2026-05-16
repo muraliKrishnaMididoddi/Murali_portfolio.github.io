@@ -67,6 +67,11 @@ section{position:relative;z-index:1}
 .hero-circle{position:absolute;right:-200px;top:-100px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle at 40% 40%,var(--cream),transparent 65%);border:1px solid var(--border);pointer-events:none;}
 .hero-circle-2{position:absolute;left:-120px;bottom:-200px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(26,107,107,.06),transparent 65%);pointer-events:none;}
 .hero-inner{max-width:1120px;margin:0 auto;width:100%;position:relative}
+
+/* typing animation */
+.typing-wrap{margin-bottom:20px;animation:slideIn .6s ease both;}
+.typing-wrap img{max-width:100%;height:auto;}
+
 .hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:32px;animation:slideIn .6s ease both;}
 .hero-tag::before{content:'';width:32px;height:1px;background:var(--teal)}
 .hero-name{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,8vw,7rem);font-weight:900;line-height:.95;letter-spacing:-.03em;color:var(--ink);animation:slideIn .6s .08s ease both;margin-bottom:8px;}
@@ -87,7 +92,7 @@ section{position:relative;z-index:1}
 .ticker-num span{color:var(--teal)}
 .ticker-label{font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px}
 .ticker-item.views .ticker-num{font-size:2.2rem;display:flex;align-items:baseline;gap:4px;}
-.views-count{font-family:'Playfair Display',serif;font-weight:900;color:var(--ink);transition:opacity .3s;}
+.views-count{font-family:'Playfair Display',serif;font-weight:900;color:var(--ink);}
 .views-live-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);display:inline-block;animation:bk 2s ease infinite;flex-shrink:0;margin-bottom:2px;}
 
 .scroll-cue{position:absolute;bottom:40px;left:5%;display:flex;align-items:center;gap:12px;font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);animation:slideIn .6s .5s ease both;}
@@ -96,6 +101,19 @@ section{position:relative;z-index:1}
 @keyframes scrollLine{0%{left:-100%}100%{left:100%}}
 @keyframes slideIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 @keyframes bk{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* github stats section */
+#github-stats{background:var(--ink);color:var(--paper);border-top:1px solid rgba(255,255,255,.1);}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;}
+.stats-grid img{width:100%;border-radius:var(--r);}
+.stats-single{text-align:center;margin-bottom:24px;}
+.stats-single img{max-width:100%;border-radius:var(--r);}
+.skill-icons{text-align:center;margin-bottom:24px;}
+.skill-icons img{max-width:100%;}
+.snake-wrap{text-align:center;}
+.snake-wrap img{max-width:100%;border-radius:var(--r);}
+.activity-wrap{text-align:center;margin-bottom:24px;}
+.activity-wrap img{max-width:100%;border-radius:var(--r);}
 
 #about{background:var(--ink);color:var(--paper);padding:0;overflow:hidden;}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;min-height:80vh;}
@@ -132,8 +150,7 @@ section{position:relative;z-index:1}
 .section-title em{font-style:italic;color:var(--teal)}
 .skills-masonry{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 .sk-card{background:var(--paper);border:1px solid var(--border);border-radius:var(--r);padding:28px;transition:all .25s;position:relative;overflow:hidden;}
-.sk-card:nth-child(1){grid-column:span 2}
-.sk-card:nth-child(4){grid-column:span 2}
+.sk-card:nth-child(1){grid-column:span 2}.sk-card:nth-child(4){grid-column:span 2}
 .sk-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;transition:transform .3s;transform:scaleX(0);transform-origin:left;}
 .sk-card:nth-child(1)::after{background:var(--teal)}.sk-card:nth-child(2)::after{background:var(--gold)}.sk-card:nth-child(3)::after{background:var(--rust)}.sk-card:nth-child(4)::after{background:var(--sage)}.sk-card:nth-child(5)::after{background:var(--teal)}.sk-card:nth-child(6)::after{background:var(--gold)}
 .sk-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.1)}
@@ -247,6 +264,7 @@ footer a:hover{color:var(--gold)}
   .exp-layout{grid-template-columns:1fr}.exp-sticky{position:static}
   .proj-grid{grid-template-columns:1fr 1fr}.proj-card:nth-child(1),.proj-card:nth-child(5),.proj-card:nth-child(8){grid-column:span 1}
   .edu-grid{grid-template-columns:1fr}.contact-wrap{grid-template-columns:1fr;gap:40px}
+  .stats-grid{grid-template-columns:1fr}
 }
 @media(max-width:640px){
   .nav-links{display:none}.hb{display:flex}
@@ -266,7 +284,7 @@ footer a:hover{color:var(--gold)}
   <div class="nav-links">
     <a href="#about">About</a><a href="#skills">Skills</a>
     <a href="#experience">Experience</a><a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+    <a href="#github-stats">GitHub</a><a href="#contact">Contact</a>
   </div>
   <a class="nav-cta" href="mailto:munnummk499@gmail.com">Hire Me</a>
   <button class="hb" id="hb"><span></span><span></span><span></span></button>
@@ -274,13 +292,16 @@ footer a:hover{color:var(--gold)}
 <div class="mm" id="mm">
   <a href="#about">About</a><a href="#skills">Skills</a>
   <a href="#experience">Experience</a><a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
+  <a href="#github-stats">GitHub</a><a href="#contact">Contact</a>
 </div>
 
 <section id="hero">
   <div class="hero-circle"></div>
   <div class="hero-circle-2"></div>
   <div class="hero-inner">
+    <div class="typing-wrap">
+      <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=3000&pause=1000&color=1A6B6B&center=false&vCenter=true&width=500&lines=Hi+I'm+Murali+Krishna+%F0%9F%91%8B;Data+%26+AI+Engineer;Azure+%7C+AWS+%7C+Databricks+%7C+Spark;Building+Pipelines+That+Think;Open+To+Opportunities!" alt="Typing SVG" />
+    </div>
     <div class="hero-tag">Boston, MA · Available for opportunities</div>
     <h1 class="hero-name">
       Murali<br><span class="italic">Krishna</span><br><span class="outline">Mididoddi</span>
@@ -376,7 +397,6 @@ footer a:hover{color:var(--gold)}
         <p class="exp-sticky-desc">Three years across healthcare, financial services, and enterprise — always building things that scale.</p>
       </div>
       <div class="exp-timeline">
-
         <div class="exp-item rv">
           <div class="exp-top"><div class="exp-role">CRM Analyst</div><div class="exp-date">May 2026 – Present</div></div>
           <div class="exp-company"><strong>Delaware North — TD Garden</strong><div class="exp-dot"></div><span>Boston, MA</span></div>
@@ -388,7 +408,6 @@ footer a:hover{color:var(--gold)}
           </ul>
           <div class="exp-chips"><span class="exp-chip">Python</span><span class="exp-chip">SQL</span><span class="exp-chip">Azure</span><span class="exp-chip">Power BI</span><span class="exp-chip">ETL</span></div>
         </div>
-
         <div class="exp-item rv">
           <div class="exp-top"><div class="exp-role">Sr. Data & Analytics Engineer</div><div class="exp-date">Aug 2025 – Mar 2026</div></div>
           <div class="exp-company"><strong>Rollins Inc</strong><div class="exp-dot"></div><span>Marietta, GA</span></div>
@@ -400,7 +419,6 @@ footer a:hover{color:var(--gold)}
           </ul>
           <div class="exp-chips"><span class="exp-chip">Azure</span><span class="exp-chip">Databricks</span><span class="exp-chip">PySpark</span><span class="exp-chip">Snowflake</span><span class="exp-chip">ADF</span><span class="exp-chip">Power BI</span></div>
         </div>
-
         <div class="exp-item rv">
           <div class="exp-top"><div class="exp-role">Data Engineer</div><div class="exp-date">Feb 2025 – Aug 2025</div></div>
           <div class="exp-company"><strong>Federal Home Loan Bank</strong><div class="exp-dot"></div><span>Atlanta, GA</span></div>
@@ -411,7 +429,6 @@ footer a:hover{color:var(--gold)}
           </ul>
           <div class="exp-chips"><span class="exp-chip">Python</span><span class="exp-chip">SQL</span><span class="exp-chip">Data Modeling</span><span class="exp-chip">ETL</span><span class="exp-chip">Agile</span></div>
         </div>
-
         <div class="exp-item rv">
           <div class="exp-top"><div class="exp-role">Data Engineer</div><div class="exp-date">Mar 2021 – Dec 2022</div></div>
           <div class="exp-company"><strong>Aetna Insurance</strong><div class="exp-dot"></div><span>Hartford, CT</span></div>
@@ -423,7 +440,6 @@ footer a:hover{color:var(--gold)}
           </ul>
           <div class="exp-chips"><span class="exp-chip">AWS Glue</span><span class="exp-chip">S3</span><span class="exp-chip">Athena</span><span class="exp-chip">Python</span><span class="exp-chip">HIPAA</span><span class="exp-chip">Jenkins</span></div>
         </div>
-
       </div>
     </div>
   </div>
@@ -455,10 +471,47 @@ footer a:hover{color:var(--gold)}
   </div>
 </section>
 
+<!-- ══ GITHUB STATS ══ -->
+<section id="github-stats" class="sp">
+  <div class="wrap">
+    <div class="rv" style="margin-bottom:48px">
+      <div style="font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">05 — GitHub</div>
+      <h2 class="section-title">Code & <em>activity</em></h2>
+    </div>
+
+    <!-- Skill Icons -->
+    <div class="skill-icons rv" style="margin-bottom:32px">
+      <img src="https://skillicons.dev/icons?i=python,azure,aws,docker,kubernetes,github,postgresql,java,tensorflow,pytorch,kafka,redis,bash,linux,scala&perline=8" alt="skill icons"/>
+    </div>
+
+    <!-- Stats grid -->
+    <div class="stats-grid rv">
+      <img src="https://github-readme-stats.vercel.app/api?username=muraliKrishnaMididoddi&show_icons=true&hide_border=true&bg_color=0D1117&title_color=1a6b6b&icon_color=1a6b6b&text_color=ffffff" alt="GitHub stats"/>
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=muraliKrishnaMididoddi&layout=compact&hide_border=true&bg_color=0D1117&title_color=1a6b6b&text_color=ffffff" alt="Top languages"/>
+    </div>
+
+    <!-- Streak -->
+    <div class="stats-single rv">
+      <img src="https://streak-stats.demolab.com?user=muraliKrishnaMididoddi&theme=dark&hide_border=true&background=0D1117&ring=1a6b6b&fire=1a6b6b&currStreakLabel=1a6b6b&sideLabels=1a6b6b&dates=ffffff" alt="GitHub streak"/>
+    </div>
+
+    <!-- Activity graph -->
+    <div class="activity-wrap rv">
+      <img src="https://github-readme-activity-graph.vercel.app/graph?username=muraliKrishnaMididoddi&theme=react-dark&hide_border=true&color=1a6b6b&line=1a6b6b&point=ffffff" alt="activity graph"/>
+    </div>
+
+    <!-- Snake -->
+    <div class="snake-wrap rv">
+      <img src="https://raw.githubusercontent.com/muraliKrishnaMididoddi/muraliKrishnaMididoddi/output/github-contribution-grid-snake-dark.svg" alt="snake animation"/>
+    </div>
+
+  </div>
+</section>
+
 <section id="certifications" class="sp">
   <div class="wrap">
     <div class="cert-header rv">
-      <div style="font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:8px">05 — Credentials</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:8px">06 — Credentials</div>
       <h2 class="section-title" style="color:var(--paper)">Certified <em>& curious</em></h2>
     </div>
     <div class="cert-grid">
@@ -475,7 +528,7 @@ footer a:hover{color:var(--gold)}
 <section id="education" class="sp">
   <div class="wrap">
     <div class="rv" style="margin-bottom:48px">
-      <div style="font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">06 — Education</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">07 — Education</div>
       <h2 class="section-title">The <em>foundation</em></h2>
     </div>
     <div class="edu-grid">
@@ -498,7 +551,7 @@ footer a:hover{color:var(--gold)}
   <div class="wrap">
     <div class="contact-wrap">
       <div class="rv-left">
-        <div style="font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px">07 — Say hello</div>
+        <div style="font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px">08 — Say hello</div>
         <h2 class="contact-big">Let's build something <em>great</em></h2>
         <p class="contact-desc">Looking for a Data or AI Engineer who actually ships? I'm open to full-time roles, contract work, and interesting collaborations.</p>
         <div class="avail"><div class="avail-dot"></div>Open to opportunities</div>
@@ -556,7 +609,6 @@ mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vi');obs.unobserve(x.target)}}),{threshold:.1});
 document.querySelectorAll('.rv,.rv-left').forEach(el=>obs.observe(el));
 
-// GA4 — section view tracking
 const sectionObs=new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
@@ -567,24 +619,20 @@ const sectionObs=new IntersectionObserver(entries=>{
 },{threshold:0.3});
 document.querySelectorAll('section[id]').forEach(s=>sectionObs.observe(s));
 
-// GA4 — scroll depth
 const depths=[25,50,75,100],fired=new Set();
 window.addEventListener('scroll',()=>{
   const pct=Math.round((scrollY/(document.body.scrollHeight-innerHeight))*100);
   depths.forEach(d=>{if(pct>=d&&!fired.has(d)){fired.add(d);gaEvent('scroll_depth',{depth_percent:d});}});
 },{passive:true});
 
-// GA4 — time on page
 [30,60,120,300].forEach(s=>setTimeout(()=>gaEvent('time_on_page',{seconds:s}),s*1000));
 
-// Marquee
 (function(){
   const items=['Apache Spark','Databricks','Snowflake','Azure','AWS','Python','SQL','Delta Lake','dbt','Power BI','ML / AI','GenAI','NLP','PySpark','Airflow','Tableau'];
   const t=document.getElementById('mqinner');
   [...items,...items].forEach(i=>{const d=document.createElement('div');d.className='marquee-item';d.textContent=i;t.appendChild(d);});
 })();
 
-// Projects toggle
 let po=false;
 function toggleProjects(){
   po=!po;
@@ -594,7 +642,6 @@ function toggleProjects(){
   else{gaEvent('projects_expanded',{action:'show_fewer'});}
 }
 
-// Contact form
 document.getElementById('cform').addEventListener('submit',function(e){
   e.preventDefault();
   const btn=document.getElementById('csb'),al=document.getElementById('cfa'),fd=new FormData(this);
@@ -608,7 +655,6 @@ document.getElementById('cform').addEventListener('submit',function(e){
   setTimeout(()=>al.classList.remove('sh'),6000);
 });
 
-// View counter
 (async function(){
   const vcEl=document.getElementById('vc');
   const encodedUrl=encodeURIComponent('https://muralikrishnamididoddi.github.io/Myresume');
