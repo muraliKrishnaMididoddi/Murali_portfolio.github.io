@@ -8,134 +8,49 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Cabinet+Grotesk:wght@300;400;500;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 
-<!-- ═══════════════════════════════════════════════════════════
-     GOOGLE ANALYTICS 4
-     ─────────────────────────────────────────────────────────
-     STEP 1: Go to analytics.google.com → Admin → Create Property
-     STEP 2: Choose "Web", enter your GitHub Pages URL
-     STEP 3: Copy your Measurement ID (looks like G-XXXXXXXXXX)
-     STEP 4: Replace G-XXXXXXXXXX below with your real ID
-     ═══════════════════════════════════════════════════════════ -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KQ8D3G12GH"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-KQ8D3G12GH', {
     page_title: 'Murali Krishna — Portfolio',
-    page_location: window.location.href,
-    // Custom dimensions for richer segmentation
-    custom_map: {
-      dimension1: 'visitor_type',
-      dimension2: 'section_viewed'
-    }
+    page_location: window.location.href
   });
-
-
-  // ── GA4 CUSTOM EVENT HELPERS ────────────────────────────────
-  // Called throughout the page to track meaningful interactions.
-  // All visible in GA4 → Reports → Events.
-
   function gaEvent(name, params) {
-    if (typeof gtag !== 'undefined') {
-      gtag('event', name, params);
-    }
+    if (typeof gtag !== 'undefined') { gtag('event', name, params); }
   }
 </script>
 
 <style>
-/* ── TOKENS ── */
 :root{
-  --ink:#0e0c0a;
-  --paper:#f5f0e8;
-  --cream:#ede8dc;
-  --warm:#e8dfd0;
-  --teal:#1a6b6b;
-  --teal-light:#2a9090;
-  --gold:#c8902a;
-  --gold-light:#e8b050;
-  --rust:#c04a2a;
-  --sage:#4a7a5a;
-  --text:#1a1815;
-  --muted:#6a6560;
-  --border:#d8d0c0;
-  --r:12px;
+  --ink:#0e0c0a;--paper:#f5f0e8;--cream:#ede8dc;--warm:#e8dfd0;
+  --teal:#1a6b6b;--teal-light:#2a9090;--gold:#c8902a;--gold-light:#e8b050;
+  --rust:#c04a2a;--sage:#4a7a5a;--text:#1a1815;--muted:#6a6560;
+  --border:#d8d0c0;--r:12px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
-body{
-  background:var(--paper);
-  color:var(--text);
-  font-family:'Cabinet Grotesk',sans-serif;
-  line-height:1.65;
-  overflow-x:hidden;
-  cursor:none;
-}
+body{background:var(--paper);color:var(--text);font-family:'Cabinet Grotesk',sans-serif;line-height:1.65;overflow-x:hidden;cursor:none;}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
 
-/* ── CUSTOM CURSOR ── */
-#cursor{
-  position:fixed;width:12px;height:12px;
-  background:var(--teal);border-radius:50%;
-  pointer-events:none;z-index:9999;
-  transition:transform .15s ease,background .2s;
-  transform:translate(-50%,-50%);
-}
-#cursor-ring{
-  position:fixed;width:36px;height:36px;
-  border:1.5px solid var(--teal);border-radius:50%;
-  pointer-events:none;z-index:9998;
-  transition:transform .35s ease,width .2s,height .2s,opacity .2s;
-  transform:translate(-50%,-50%);
-  opacity:.5;
-}
+#cursor{position:fixed;width:12px;height:12px;background:var(--teal);border-radius:50%;pointer-events:none;z-index:9999;transition:transform .15s ease,background .2s;transform:translate(-50%,-50%);}
+#cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid var(--teal);border-radius:50%;pointer-events:none;z-index:9998;transition:transform .35s ease,width .2s,height .2s,opacity .2s;transform:translate(-50%,-50%);opacity:.5;}
 body:hover #cursor{opacity:1}
 
-/* ── NOISE TEXTURE ── */
-body::before{
-  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  opacity:.6;
-}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");opacity:.6;}
 
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:20px 5%;
-  background:rgba(245,240,232,.85);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-  transition:all .3s;
-}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 5%;background:rgba(245,240,232,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:all .3s;}
 nav.sc{padding:14px 5%;box-shadow:0 2px 20px rgba(0,0,0,.08)}
-.nav-logo{
-  font-family:'Playfair Display',serif;
-  font-size:1.3rem;font-weight:900;
-  letter-spacing:-.02em;
-  color:var(--ink);
-}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;letter-spacing:-.02em;color:var(--ink);}
 .nav-logo em{color:var(--teal);font-style:italic}
 .nav-links{display:flex;gap:32px}
-.nav-links a{
-  font-size:.82rem;font-weight:500;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--muted);
-  transition:color .2s;position:relative;
-}
-.nav-links a::after{
-  content:'';position:absolute;bottom:-3px;left:0;right:0;height:1.5px;
-  background:var(--teal);transform:scaleX(0);transform-origin:left;transition:.3s;
-}
+.nav-links a{font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);transition:color .2s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1.5px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:.3s;}
 .nav-links a:hover{color:var(--teal)}
 .nav-links a:hover::after{transform:scaleX(1)}
-.nav-cta{
-  padding:9px 22px;border-radius:100px;
-  background:var(--ink);color:var(--paper);
-  font-size:.82rem;font-weight:700;letter-spacing:.04em;
-  transition:all .2s;
-}
+.nav-cta{padding:9px 22px;border-radius:100px;background:var(--ink);color:var(--paper);font-size:.82rem;font-weight:700;letter-spacing:.04em;transition:all .2s;}
 .nav-cta:hover{background:var(--teal);transform:translateY(-1px)}
 .hb{display:none;flex-direction:column;gap:5px;cursor:none;background:none;border:none;padding:4px}
 .hb span{width:22px;height:1.5px;background:var(--ink);transition:.3s;display:block}
@@ -144,201 +59,72 @@ nav.sc{padding:14px 5%;box-shadow:0 2px 20px rgba(0,0,0,.08)}
 .mm a{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:var(--paper);transition:.2s}
 .mm a:hover{color:var(--gold)}
 
-/* ── SECTIONS ── */
 section{position:relative;z-index:1}
 .wrap{max-width:1120px;margin:0 auto;padding:0 5%}
 .sp{padding:100px 0}
 
-/* ── HERO ── */
-#hero{
-  min-height:100vh;
-  display:grid;
-  grid-template-rows:1fr auto;
-  padding:140px 5% 60px;
-  background:var(--paper);
-  position:relative;overflow:hidden;
-}
-.hero-circle{
-  position:absolute;right:-200px;top:-100px;
-  width:700px;height:700px;border-radius:50%;
-  background:radial-gradient(circle at 40% 40%,var(--cream),transparent 65%);
-  border:1px solid var(--border);
-  pointer-events:none;
-}
-.hero-circle-2{
-  position:absolute;left:-120px;bottom:-200px;
-  width:500px;height:500px;border-radius:50%;
-  background:radial-gradient(circle,rgba(26,107,107,.06),transparent 65%);
-  pointer-events:none;
-}
+#hero{min-height:100vh;display:grid;grid-template-rows:1fr auto;padding:140px 5% 60px;background:var(--paper);position:relative;overflow:hidden;}
+.hero-circle{position:absolute;right:-200px;top:-100px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle at 40% 40%,var(--cream),transparent 65%);border:1px solid var(--border);pointer-events:none;}
+.hero-circle-2{position:absolute;left:-120px;bottom:-200px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(26,107,107,.06),transparent 65%);pointer-events:none;}
 .hero-inner{max-width:1120px;margin:0 auto;width:100%;position:relative}
-.hero-tag{
-  display:inline-flex;align-items:center;gap:10px;
-  font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--teal);margin-bottom:32px;
-  animation:slideIn .6s ease both;
-}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:32px;animation:slideIn .6s ease both;}
 .hero-tag::before{content:'';width:32px;height:1px;background:var(--teal)}
-.hero-name{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(3.5rem,8vw,7rem);
-  font-weight:900;line-height:.95;
-  letter-spacing:-.03em;
-  color:var(--ink);
-  animation:slideIn .6s .08s ease both;
-  margin-bottom:8px;
-}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(3.5rem,8vw,7rem);font-weight:900;line-height:.95;letter-spacing:-.03em;color:var(--ink);animation:slideIn .6s .08s ease both;margin-bottom:8px;}
 .hero-name .italic{font-style:italic;color:var(--teal)}
 .hero-name .outline{-webkit-text-stroke:2px var(--ink);color:transparent;}
-.hero-role{
-  font-size:clamp(1.1rem,2.2vw,1.5rem);
-  font-weight:300;color:var(--muted);
-  margin-bottom:40px;
-  animation:slideIn .6s .16s ease both;
-  max-width:520px;line-height:1.5;
-}
+.hero-role{font-size:clamp(1.1rem,2.2vw,1.5rem);font-weight:300;color:var(--muted);margin-bottom:40px;animation:slideIn .6s .16s ease both;max-width:520px;line-height:1.5;}
 .hero-role strong{color:var(--ink);font-weight:700}
-.hero-actions{
-  display:flex;gap:14px;flex-wrap:wrap;
-  animation:slideIn .6s .24s ease both;
-  margin-bottom:64px;
-}
-.btn-fill{
-  padding:14px 32px;border-radius:100px;
-  background:var(--ink);color:var(--paper);
-  font-weight:700;font-size:.9rem;
-  transition:all .2s;border:none;cursor:none;
-}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;animation:slideIn .6s .24s ease both;margin-bottom:64px;}
+.btn-fill{padding:14px 32px;border-radius:100px;background:var(--ink);color:var(--paper);font-weight:700;font-size:.9rem;transition:all .2s;border:none;cursor:none;}
 .btn-fill:hover{background:var(--teal);transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,107,107,.25)}
-.btn-ring{
-  padding:14px 32px;border-radius:100px;
-  background:transparent;color:var(--ink);
-  font-weight:700;font-size:.9rem;
-  border:1.5px solid var(--ink);
-  transition:all .2s;cursor:none;
-}
+.btn-ring{padding:14px 32px;border-radius:100px;background:transparent;color:var(--ink);font-weight:700;font-size:.9rem;border:1.5px solid var(--ink);transition:all .2s;cursor:none;}
 .btn-ring:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px)}
 
-/* ═══════════════════════════════════════════════════════════
-   PROFILE VIEW COUNTER — hero ticker item
-   Uses hits.seeyoufarm.com (free, no backend, works on
-   static GitHub Pages). Counter increments on every real
-   page load.
-   ═══════════════════════════════════════════════════════════ */
-
-/* hero stats */
-.hero-ticker{
-  display:flex;gap:0;
-  border-top:1px solid var(--border);
-  padding-top:32px;
-  animation:slideIn .6s .32s ease both;
-  flex-wrap:wrap;row-gap:20px;
-}
-.ticker-item{
-  padding:0 48px 0 0;border-right:1px solid var(--border);margin-right:48px;
-}
+.hero-ticker{display:flex;gap:0;border-top:1px solid var(--border);padding-top:32px;animation:slideIn .6s .32s ease both;flex-wrap:wrap;row-gap:20px;}
+.ticker-item{padding:0 48px 0 0;border-right:1px solid var(--border);margin-right:48px;}
 .ticker-item:last-child{border-right:none;padding:0;margin:0}
-.ticker-num{
-  font-family:'Playfair Display',serif;
-  font-size:2.8rem;font-weight:900;line-height:1;
-  color:var(--ink);
-}
+.ticker-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;line-height:1;color:var(--ink);}
 .ticker-num span{color:var(--teal)}
 .ticker-label{font-size:.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.ticker-item.views .ticker-num{font-size:2.2rem;display:flex;align-items:baseline;gap:4px;}
+.views-count{font-family:'Playfair Display',serif;font-weight:900;color:var(--ink);transition:opacity .3s;}
+.views-live-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);display:inline-block;animation:bk 2s ease infinite;flex-shrink:0;margin-bottom:2px;}
 
-/* View counter ticker item — matches existing ticker style */
-.ticker-item.views .ticker-num{
-  font-size:2.2rem; /* slightly smaller since it's a live number */
-  display:flex;align-items:baseline;gap:4px;
-}
-.views-count{
-  font-family:'Playfair Display',serif;
-  font-weight:900;color:var(--ink);
-  transition:opacity .3s;
-}
-.views-live-dot{
-  width:6px;height:6px;border-radius:50%;
-  background:var(--teal);
-  display:inline-block;
-  animation:bk 2s ease infinite;
-  flex-shrink:0;
-  margin-bottom:2px;
-}
-
-/* scroll indicator */
-.scroll-cue{
-  position:absolute;bottom:40px;left:5%;
-  display:flex;align-items:center;gap:12px;
-  font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
-  animation:slideIn .6s .5s ease both;
-}
+.scroll-cue{position:absolute;bottom:40px;left:5%;display:flex;align-items:center;gap:12px;font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);animation:slideIn .6s .5s ease both;}
 .scroll-line{width:40px;height:1px;background:var(--muted);position:relative;overflow:hidden}
-.scroll-line::after{
-  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
-  background:var(--teal);animation:scrollLine 2s ease infinite;
-}
+.scroll-line::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--teal);animation:scrollLine 2s ease infinite;}
 @keyframes scrollLine{0%{left:-100%}100%{left:100%}}
 @keyframes slideIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 @keyframes bk{0%,100%{opacity:1}50%{opacity:.3}}
 
-/* ── ABOUT ── */
 #about{background:var(--ink);color:var(--paper);padding:0;overflow:hidden;}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;min-height:80vh;}
-.about-left{
-  padding:80px 60px 80px 5%;
-  display:flex;flex-direction:column;justify-content:center;
-  border-right:1px solid rgba(255,255,255,.1);
-  position:relative;
-}
-.about-left::before{
-  content:'01';position:absolute;top:40px;left:5%;
-  font-family:'Playfair Display',serif;font-size:6rem;font-weight:900;
-  color:rgba(255,255,255,.04);line-height:1;pointer-events:none;
-}
-.about-section-tag{
-  font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:24px;display:flex;align-items:center;gap:10px;
-}
+.about-left{padding:80px 60px 80px 5%;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(255,255,255,.1);position:relative;}
+.about-left::before{content:'01';position:absolute;top:40px;left:5%;font-family:'Playfair Display',serif;font-size:6rem;font-weight:900;color:rgba(255,255,255,.04);line-height:1;pointer-events:none;}
+.about-section-tag{font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:flex;align-items:center;gap:10px;}
 .about-section-tag::before{content:'';width:24px;height:1px;background:var(--gold)}
-.about-headline{
-  font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3rem);
-  font-weight:900;line-height:1.1;letter-spacing:-.02em;margin-bottom:28px;color:var(--paper);
-}
+.about-headline{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;margin-bottom:28px;color:var(--paper);}
 .about-headline em{font-style:italic;color:var(--gold)}
 .about-body{color:rgba(255,255,255,.6);font-size:1rem;line-height:1.8;font-weight:300;margin-bottom:20px}
 .about-body strong{color:var(--paper);font-weight:600}
 .open-to{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px;}
-.open-chip{
-  padding:6px 16px;border-radius:100px;border:1px solid rgba(255,255,255,.15);
-  font-size:.75rem;font-weight:500;letter-spacing:.04em;color:rgba(255,255,255,.7);transition:all .2s;
-}
+.open-chip{padding:6px 16px;border-radius:100px;border:1px solid rgba(255,255,255,.15);font-size:.75rem;font-weight:500;letter-spacing:.04em;color:rgba(255,255,255,.7);transition:all .2s;}
 .open-chip:hover{border-color:var(--gold);color:var(--gold)}
 .about-right{padding:80px 5% 80px 60px;display:flex;flex-direction:column;justify-content:center;gap:20px;}
-.fact-card{
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
-  border-radius:var(--r);padding:20px 24px;transition:all .25s;position:relative;overflow:hidden;
-}
-.fact-card::before{
-  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
-  background:var(--gold);transform:scaleY(0);transform-origin:bottom;transition:.3s;
-}
+.fact-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:20px 24px;transition:all .25s;position:relative;overflow:hidden;}
+.fact-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);transform:scaleY(0);transform-origin:bottom;transition:.3s;}
 .fact-card:hover{background:rgba(255,255,255,.07);transform:translateX(4px)}
 .fact-card:hover::before{transform:scaleY(1)}
 .fact-label{font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:6px}
 .fact-val{font-size:.95rem;font-weight:600;color:var(--paper)}
 .fact-sub{font-size:.8rem;color:rgba(255,255,255,.45);margin-top:2px}
 
-/* marquee */
 .marquee-section{background:var(--teal);padding:16px 0;overflow:hidden;border-top:1px solid rgba(255,255,255,.1);}
 .marquee-inner{display:flex;gap:0;width:max-content;animation:mq 25s linear infinite}
-.marquee-item{
-  display:flex;align-items:center;gap:16px;padding:0 32px;white-space:nowrap;
-  font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.85);
-}
+.marquee-item{display:flex;align-items:center;gap:16px;padding:0 32px;white-space:nowrap;font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.85);}
 .marquee-item::after{content:'✦';color:rgba(255,255,255,.4);font-size:.6rem}
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* ── SKILLS ── */
 #skills{background:var(--cream);border-top:1px solid var(--border)}
 .skills-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px;flex-wrap:wrap;gap:20px;}
 .section-num{font-family:'Playfair Display',serif;font-size:5rem;font-weight:900;color:rgba(0,0,0,.06);line-height:1;letter-spacing:-.04em;}
@@ -349,21 +135,15 @@ section{position:relative;z-index:1}
 .sk-card:nth-child(1){grid-column:span 2}
 .sk-card:nth-child(4){grid-column:span 2}
 .sk-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;transition:transform .3s;transform:scaleX(0);transform-origin:left;}
-.sk-card:nth-child(1)::after{background:var(--teal)}
-.sk-card:nth-child(2)::after{background:var(--gold)}
-.sk-card:nth-child(3)::after{background:var(--rust)}
-.sk-card:nth-child(4)::after{background:var(--sage)}
-.sk-card:nth-child(5)::after{background:var(--teal)}
-.sk-card:nth-child(6)::after{background:var(--gold)}
+.sk-card:nth-child(1)::after{background:var(--teal)}.sk-card:nth-child(2)::after{background:var(--gold)}.sk-card:nth-child(3)::after{background:var(--rust)}.sk-card:nth-child(4)::after{background:var(--sage)}.sk-card:nth-child(5)::after{background:var(--teal)}.sk-card:nth-child(6)::after{background:var(--gold)}
 .sk-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.1)}
 .sk-card:hover::after{transform:scaleX(1)}
 .sk-icon{font-size:2rem;margin-bottom:14px;display:block}
 .sk-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;margin-bottom:16px;color:var(--ink)}
 .sk-tags{display:flex;flex-wrap:wrap;gap:6px}
 .sk-tag{font-family:'DM Mono',monospace;font-size:.65rem;padding:4px 10px;border-radius:100px;background:var(--cream);border:1px solid var(--border);color:var(--muted);letter-spacing:.04em;transition:all .2s;}
-.sk-card:hover .sk-tag{border-color:var(--border);color:var(--text)}
+.sk-card:hover .sk-tag{color:var(--text)}
 
-/* ── EXPERIENCE ── */
 #experience{background:var(--paper);border-top:1px solid var(--border)}
 .exp-layout{display:grid;grid-template-columns:300px 1fr;gap:80px;align-items:start}
 .exp-sticky{position:sticky;top:120px}
@@ -372,8 +152,7 @@ section{position:relative;z-index:1}
 .exp-sticky-desc{color:var(--muted);font-size:.9rem;line-height:1.7;font-weight:300}
 .exp-timeline{display:flex;flex-direction:column;gap:0}
 .exp-item{padding:40px 0;border-bottom:1px solid var(--border);position:relative;transition:all .3s;}
-.exp-item:first-child{padding-top:0}
-.exp-item:last-child{border-bottom:none}
+.exp-item:first-child{padding-top:0}.exp-item:last-child{border-bottom:none}
 .exp-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:6px;flex-wrap:wrap}
 .exp-role{font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;color:var(--ink);letter-spacing:-.01em;}
 .exp-date{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--paper);background:var(--teal);padding:4px 12px;border-radius:100px;white-space:nowrap;flex-shrink:0;margin-top:4px;letter-spacing:.04em;}
@@ -387,17 +166,11 @@ section{position:relative;z-index:1}
 .exp-chip{font-family:'DM Mono',monospace;font-size:.65rem;padding:4px 10px;border-radius:100px;border:1px solid var(--border);color:var(--muted);letter-spacing:.04em;transition:border-color .2s;}
 .exp-item:hover .exp-chip{border-color:var(--teal);color:var(--teal)}
 
-/* ── PROJECTS ── */
 #projects{background:var(--cream);border-top:1px solid var(--border)}
 .proj-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px;flex-wrap:wrap;gap:20px;}
 .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.proj-card{
-  background:var(--paper);border:1px solid var(--border);border-radius:var(--r);padding:28px;
-  display:flex;flex-direction:column;gap:12px;transition:all .25s;position:relative;overflow:hidden;cursor:none;
-}
-.proj-card:nth-child(1){grid-column:span 2}
-.proj-card:nth-child(5){grid-column:span 2}
-.proj-card:nth-child(8){grid-column:span 2}
+.proj-card{background:var(--paper);border:1px solid var(--border);border-radius:var(--r);padding:28px;display:flex;flex-direction:column;gap:12px;transition:all .25s;position:relative;overflow:hidden;cursor:none;}
+.proj-card:nth-child(1){grid-column:span 2}.proj-card:nth-child(5){grid-column:span 2}.proj-card:nth-child(8){grid-column:span 2}
 .proj-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,107,107,.03),transparent);opacity:0;transition:.3s;}
 .proj-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.1);border-color:var(--teal)}
 .proj-card:hover::before{opacity:1}
@@ -414,11 +187,9 @@ section{position:relative;z-index:1}
 .hp{display:none}.proj-grid.sa .hp{display:flex}
 #ptgl{display:flex;margin:40px auto 0;cursor:none}
 
-/* ── CERTS ── */
 #certifications{background:var(--ink);color:var(--paper);border-top:1px solid rgba(255,255,255,.1)}
 .cert-header{margin-bottom:48px}
-.cert-header .section-title{color:var(--paper)}
-.cert-header .section-title em{color:var(--gold)}
+.cert-header .section-title{color:var(--paper)}.cert-header .section-title em{color:var(--gold)}
 .cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
 .cert-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:20px 22px;display:flex;align-items:flex-start;gap:14px;transition:all .2s;}
 .cert-card:hover{background:rgba(255,255,255,.08);transform:translateY(-2px);border-color:rgba(200,144,42,.3)}
@@ -426,7 +197,6 @@ section{position:relative;z-index:1}
 .cert-name{font-weight:600;font-size:.88rem;margin-bottom:4px;color:var(--paper)}
 .cert-exp{font-family:'DM Mono',monospace;font-size:.68rem;color:rgba(255,255,255,.35)}
 
-/* ── EDUCATION ── */
 #education{background:var(--paper);border-top:1px solid var(--border)}
 .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .edu-card{background:var(--cream);border:1px solid var(--border);border-radius:var(--r);padding:32px;transition:all .25s;}
@@ -436,7 +206,6 @@ section{position:relative;z-index:1}
 .edu-gpa{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--teal);font-weight:500;}
 .edu-year{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);margin-top:12px;}
 
-/* ── CONTACT ── */
 #contact{background:var(--cream);border-top:1px solid var(--border);}
 .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
 .contact-big{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:900;line-height:1;letter-spacing:-.04em;color:var(--ink);margin-bottom:24px;}
@@ -463,39 +232,25 @@ section{position:relative;z-index:1}
 .csb:hover{background:var(--teal);transform:translateY(-1px);box-shadow:0 8px 24px rgba(26,107,107,.25)}
 .csb:disabled{opacity:.6;cursor:not-allowed;transform:none}
 
-/* ── FOOTER ── */
-footer{
-  background:var(--ink);color:rgba(255,255,255,.4);
-  padding:28px 5%;display:flex;align-items:center;justify-content:space-between;
-  font-family:'DM Mono',monospace;font-size:.72rem;border-top:1px solid rgba(255,255,255,.06);
-}
+footer{background:var(--ink);color:rgba(255,255,255,.4);padding:28px 5%;display:flex;align-items:center;justify-content:space-between;font-family:'DM Mono',monospace;font-size:.72rem;border-top:1px solid rgba(255,255,255,.06);}
 footer a{color:rgba(255,255,255,.4);transition:.2s}
 footer a:hover{color:var(--gold)}
 
-/* ── SCROLL REVEAL ── */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
 .rv.vi{opacity:1;transform:translateY(0)}
 .rv-left{opacity:0;transform:translateX(-24px);transition:opacity .65s ease,transform .65s ease}
 .rv-left.vi{opacity:1;transform:translateX(0)}
 
-/* ── RESPONSIVE ── */
 @media(max-width:900px){
-  .about-grid{grid-template-columns:1fr}
-  .about-right{padding:40px 5%}
-  .about-left{padding:60px 5%}
-  .skills-masonry{grid-template-columns:1fr 1fr}
-  .sk-card:nth-child(1),.sk-card:nth-child(4){grid-column:span 1}
-  .exp-layout{grid-template-columns:1fr}
-  .exp-sticky{position:static}
-  .proj-grid{grid-template-columns:1fr 1fr}
-  .proj-card:nth-child(1),.proj-card:nth-child(5),.proj-card:nth-child(8){grid-column:span 1}
-  .edu-grid{grid-template-columns:1fr}
-  .contact-wrap{grid-template-columns:1fr;gap:40px}
+  .about-grid{grid-template-columns:1fr}.about-right{padding:40px 5%}.about-left{padding:60px 5%}
+  .skills-masonry{grid-template-columns:1fr 1fr}.sk-card:nth-child(1),.sk-card:nth-child(4){grid-column:span 1}
+  .exp-layout{grid-template-columns:1fr}.exp-sticky{position:static}
+  .proj-grid{grid-template-columns:1fr 1fr}.proj-card:nth-child(1),.proj-card:nth-child(5),.proj-card:nth-child(8){grid-column:span 1}
+  .edu-grid{grid-template-columns:1fr}.contact-wrap{grid-template-columns:1fr;gap:40px}
 }
 @media(max-width:640px){
   .nav-links{display:none}.hb{display:flex}
-  .skills-masonry{grid-template-columns:1fr}
-  .proj-grid{grid-template-columns:1fr}
+  .skills-masonry{grid-template-columns:1fr}.proj-grid{grid-template-columns:1fr}
   .hero-ticker .ticker-item:nth-child(4){display:none}
   footer{flex-direction:column;gap:8px;text-align:center}
 }
@@ -506,14 +261,11 @@ footer a:hover{color:var(--gold)}
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 
-<!-- NAV -->
 <nav id="nb">
   <div class="nav-logo">Murali<em>.</em></div>
   <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
+    <a href="#about">About</a><a href="#skills">Skills</a>
+    <a href="#experience">Experience</a><a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </div>
   <a class="nav-cta" href="mailto:munnummk499@gmail.com">Hire Me</a>
@@ -525,27 +277,22 @@ footer a:hover{color:var(--gold)}
   <a href="#contact">Contact</a>
 </div>
 
-<!-- ══ HERO ══ -->
 <section id="hero">
   <div class="hero-circle"></div>
   <div class="hero-circle-2"></div>
   <div class="hero-inner">
     <div class="hero-tag">Boston, MA · Available for opportunities</div>
     <h1 class="hero-name">
-      Murali<br>
-      <span class="italic">Krishna</span><br>
-      <span class="outline">Mididoddi</span>
+      Murali<br><span class="italic">Krishna</span><br><span class="outline">Mididoddi</span>
     </h1>
     <p class="hero-role">
       <strong>Data & AI Engineer</strong> — building pipelines that think,<br>
       lakehouses that scale, and ML models that matter.
     </p>
     <div class="hero-actions">
-      <a class="btn-fill" href="#contact" onclick="gaEvent('cta_click',{cta_name:'hero_lets_work',location:'hero'})">Let's work together</a>
+      <a class="btn-fill" href="#contact" onclick="gaEvent('cta_click',{cta_name:'hero_lets_work'})">Let's work together</a>
       <a class="btn-ring" href="https://github.com/muraliKrishnaMididoddi" target="_blank" onclick="gaEvent('social_click',{platform:'github',location:'hero'})">See my work →</a>
     </div>
-
-    <!-- ══ TICKER — stats row with live view counter ══ -->
     <div class="hero-ticker">
       <div class="ticker-item">
         <div class="ticker-num">3<span>+</span></div>
@@ -559,22 +306,6 @@ footer a:hover{color:var(--gold)}
         <div class="ticker-num">3<span>.7</span></div>
         <div class="ticker-label">MS GPA</div>
       </div>
-
-      <!-- ═══════════════════════════════════════════════════════
-           PROFILE VIEW COUNTER
-           ─────────────────────────────────────────────────────
-           How this works:
-           1. Uses hits.seeyoufarm.com — a free, no-backend
-              counter that works on any static site.
-           2. Replace YOUR_GITHUB_USERNAME/YOUR_REPO_NAME with
-              your actual GitHub Pages repo, e.g.:
-              muraliKrishnaMididoddi/muraliKrishnaMididoddi.github.io
-           3. The hidden <img> pings the counter API on each
-              page load and increments the count.
-           4. We fetch the count via their JSON API and display
-              it styled to match the existing ticker.
-           5. Falls back to "—" gracefully if fetch fails.
-           ═══════════════════════════════════════════════════════ -->
       <div class="ticker-item views">
         <div class="ticker-num">
           <div class="views-live-dot"></div>
@@ -582,78 +313,40 @@ footer a:hover{color:var(--gold)}
         </div>
         <div class="ticker-label">Portfolio views</div>
       </div>
-
     </div>
   </div>
   <div class="scroll-cue"><div class="scroll-line"></div>Scroll to explore</div>
 </section>
 
-<!-- Hidden pixel that registers the hit — must be on the page for count to increment -->
-<!-- REPLACE: muraliKrishnaMididoddi/Murali_portfolio.github.io with your actual repo -->
-<img
-  src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2FmuraliKrishnaMididoddi.github.io%2FMurali_portfolio.github.io&count_bg=%231a6b6b&title_bg=%230e0c0a&icon=&icon_color=%23FFFFFF&title=views&edge_flat=false"
-  alt=""
-  aria-hidden="true"
-  style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none"
-  id="hits-pixel"
-/>
+<img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2FmuraliKrishnaMididoddi.github.io%2FMyresume&count_bg=%231a6b6b&title_bg=%230e0c0a&title=views&edge_flat=false" alt="" aria-hidden="true" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none"/>
 
-<!-- ══ MARQUEE ══ -->
 <div class="marquee-section">
   <div class="marquee-inner" id="mqinner"></div>
 </div>
 
-<!-- ══ ABOUT ══ -->
 <section id="about">
   <div class="about-grid">
     <div class="about-left rv-left">
       <div class="about-section-tag">Who I am</div>
       <h2 class="about-headline">I turn messy data into <em>clean stories</em></h2>
-      <p class="about-body">
-        I'm a <strong>Data & AI Engineer</strong> with 3+ years of hands-on experience building the kind of data infrastructure that actually gets used — end-to-end pipelines, scalable lakehouses, and ML systems that go to production.
-      </p>
-      <p class="about-body">
-        My work spans <strong>Azure, AWS, Databricks, Spark, Snowflake</strong>, and a healthy dose of Python. I've worked across healthcare, financial services, and enterprise analytics — and I care deeply about data that's reliable, observable, and useful.
-      </p>
+      <p class="about-body">I'm a <strong>Data & AI Engineer</strong> with 3+ years of hands-on experience building the kind of data infrastructure that actually gets used — end-to-end pipelines, scalable lakehouses, and ML systems that go to production.</p>
+      <p class="about-body">My work spans <strong>Azure, AWS, Databricks, Spark, Snowflake</strong>, and a healthy dose of Python. I've worked across healthcare, financial services, and enterprise analytics — and I care deeply about data that's reliable, observable, and useful.</p>
       <div class="open-to">
-        <span class="open-chip">Data Engineer</span>
-        <span class="open-chip">AI / ML Engineer</span>
-        <span class="open-chip">Analytics Engineer</span>
-        <span class="open-chip">Cloud Data Engineer</span>
+        <span class="open-chip">Data Engineer</span><span class="open-chip">AI / ML Engineer</span>
+        <span class="open-chip">Analytics Engineer</span><span class="open-chip">Cloud Data Engineer</span>
         <span class="open-chip">ETL Developer</span>
       </div>
     </div>
     <div class="about-right rv">
-      <div class="fact-card">
-        <div class="fact-label">Currently at</div>
-        <div class="fact-val">Delaware North — TD Garden</div>
-        <div class="fact-sub">CRM Analyst · Boston, MA · May 2026–Present</div>
-      </div>
-      <div class="fact-card">
-        <div class="fact-label">Education</div>
-        <div class="fact-val">MS Big Data Analytics & IT</div>
-        <div class="fact-sub">Univ. of Central Missouri · GPA 3.70 · Dec 2024</div>
-      </div>
-      <div class="fact-card">
-        <div class="fact-label">Core stack</div>
-        <div class="fact-val">Azure · AWS · Spark · Databricks · Snowflake</div>
-        <div class="fact-sub">+ Python, SQL, dbt, Airflow, Power BI</div>
-      </div>
-      <div class="fact-card">
-        <div class="fact-label">Location</div>
-        <div class="fact-val">📍 Boston, MA — Eastern Time</div>
-        <div class="fact-sub">Open to remote & on-site across the US</div>
-      </div>
-      <div class="fact-card">
-        <div class="fact-label">Attended</div>
-        <div class="fact-val">ICML 2024 — Machine Learning Conference</div>
-        <div class="fact-sub">Deep learning, RL, TensorFlow & PyTorch workshops</div>
-      </div>
+      <div class="fact-card"><div class="fact-label">Currently at</div><div class="fact-val">Delaware North — TD Garden</div><div class="fact-sub">CRM Analyst · Boston, MA · May 2026–Present</div></div>
+      <div class="fact-card"><div class="fact-label">Education</div><div class="fact-val">MS Big Data Analytics & IT</div><div class="fact-sub">Univ. of Central Missouri · GPA 3.70 · Dec 2024</div></div>
+      <div class="fact-card"><div class="fact-label">Core stack</div><div class="fact-val">Azure · AWS · Spark · Databricks · Snowflake</div><div class="fact-sub">+ Python, SQL, dbt, Airflow, Power BI</div></div>
+      <div class="fact-card"><div class="fact-label">Location</div><div class="fact-val">📍 Boston, MA — Eastern Time</div><div class="fact-sub">Open to remote & on-site across the US</div></div>
+      <div class="fact-card"><div class="fact-label">Attended</div><div class="fact-val">ICML 2024 — Machine Learning Conference</div><div class="fact-sub">Deep learning, RL, TensorFlow & PyTorch workshops</div></div>
     </div>
   </div>
 </section>
 
-<!-- ══ SKILLS ══ -->
 <section id="skills" class="sp">
   <div class="wrap">
     <div class="skills-header rv">
@@ -664,68 +357,16 @@ footer a:hover{color:var(--gold)}
       <div class="section-num">02</div>
     </div>
     <div class="skills-masonry">
-      <div class="sk-card rv">
-        <span class="sk-icon">🤖</span>
-        <div class="sk-name">AI & Machine Learning</div>
-        <div class="sk-tags">
-          <span class="sk-tag">Scikit-Learn</span><span class="sk-tag">TensorFlow</span>
-          <span class="sk-tag">PyTorch</span><span class="sk-tag">Spark MLlib</span>
-          <span class="sk-tag">NLP / Transformers</span><span class="sk-tag">GenAI / LLMs</span>
-          <span class="sk-tag">Collaborative Filtering</span><span class="sk-tag">XGBoost</span>
-        </div>
-      </div>
-      <div class="sk-card rv">
-        <span class="sk-icon">☁️</span>
-        <div class="sk-name">Cloud Platforms</div>
-        <div class="sk-tags">
-          <span class="sk-tag">Azure (ADF, ADLS, Synapse)</span>
-          <span class="sk-tag">AWS (S3, Glue, Athena)</span>
-          <span class="sk-tag">Redshift</span><span class="sk-tag">Azure DevOps</span>
-          <span class="sk-tag">CI/CD</span>
-        </div>
-      </div>
-      <div class="sk-card rv">
-        <span class="sk-icon">⚡</span>
-        <div class="sk-name">Data Engineering</div>
-        <div class="sk-tags">
-          <span class="sk-tag">Apache Spark</span><span class="sk-tag">PySpark</span>
-          <span class="sk-tag">Databricks</span><span class="sk-tag">Delta Lake</span>
-          <span class="sk-tag">Snowflake</span><span class="sk-tag">dbt</span>
-          <span class="sk-tag">Hadoop</span><span class="sk-tag">Hive</span>
-        </div>
-      </div>
-      <div class="sk-card rv">
-        <span class="sk-icon">💻</span>
-        <div class="sk-name">Languages</div>
-        <div class="sk-tags">
-          <span class="sk-tag">Python</span><span class="sk-tag">SQL</span>
-          <span class="sk-tag">PySpark</span><span class="sk-tag">PL/SQL</span>
-          <span class="sk-tag">Java</span><span class="sk-tag">Bash</span>
-        </div>
-      </div>
-      <div class="sk-card rv">
-        <span class="sk-icon">🔧</span>
-        <div class="sk-name">Orchestration & DevOps</div>
-        <div class="sk-tags">
-          <span class="sk-tag">Apache Airflow</span><span class="sk-tag">Jenkins</span>
-          <span class="sk-tag">Docker</span><span class="sk-tag">Kubernetes</span>
-          <span class="sk-tag">GitHub</span>
-        </div>
-      </div>
-      <div class="sk-card rv">
-        <span class="sk-icon">📊</span>
-        <div class="sk-name">BI & Visualization</div>
-        <div class="sk-tags">
-          <span class="sk-tag">Power BI</span><span class="sk-tag">Tableau</span>
-          <span class="sk-tag">Alteryx</span><span class="sk-tag">JIRA</span>
-          <span class="sk-tag">Confluence</span>
-        </div>
-      </div>
+      <div class="sk-card rv"><span class="sk-icon">🤖</span><div class="sk-name">AI & Machine Learning</div><div class="sk-tags"><span class="sk-tag">Scikit-Learn</span><span class="sk-tag">TensorFlow</span><span class="sk-tag">PyTorch</span><span class="sk-tag">Spark MLlib</span><span class="sk-tag">NLP / Transformers</span><span class="sk-tag">GenAI / LLMs</span><span class="sk-tag">Collaborative Filtering</span><span class="sk-tag">XGBoost</span></div></div>
+      <div class="sk-card rv"><span class="sk-icon">☁️</span><div class="sk-name">Cloud Platforms</div><div class="sk-tags"><span class="sk-tag">Azure (ADF, ADLS, Synapse)</span><span class="sk-tag">AWS (S3, Glue, Athena)</span><span class="sk-tag">Redshift</span><span class="sk-tag">Azure DevOps</span><span class="sk-tag">CI/CD</span></div></div>
+      <div class="sk-card rv"><span class="sk-icon">⚡</span><div class="sk-name">Data Engineering</div><div class="sk-tags"><span class="sk-tag">Apache Spark</span><span class="sk-tag">PySpark</span><span class="sk-tag">Databricks</span><span class="sk-tag">Delta Lake</span><span class="sk-tag">Snowflake</span><span class="sk-tag">dbt</span><span class="sk-tag">Hadoop</span><span class="sk-tag">Hive</span></div></div>
+      <div class="sk-card rv"><span class="sk-icon">💻</span><div class="sk-name">Languages</div><div class="sk-tags"><span class="sk-tag">Python</span><span class="sk-tag">SQL</span><span class="sk-tag">PySpark</span><span class="sk-tag">PL/SQL</span><span class="sk-tag">Java</span><span class="sk-tag">Bash</span></div></div>
+      <div class="sk-card rv"><span class="sk-icon">🔧</span><div class="sk-name">Orchestration & DevOps</div><div class="sk-tags"><span class="sk-tag">Apache Airflow</span><span class="sk-tag">Jenkins</span><span class="sk-tag">Docker</span><span class="sk-tag">Kubernetes</span><span class="sk-tag">GitHub</span></div></div>
+      <div class="sk-card rv"><span class="sk-icon">📊</span><div class="sk-name">BI & Visualization</div><div class="sk-tags"><span class="sk-tag">Power BI</span><span class="sk-tag">Tableau</span><span class="sk-tag">Alteryx</span><span class="sk-tag">JIRA</span><span class="sk-tag">Confluence</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- ══ EXPERIENCE ══ -->
 <section id="experience" class="sp">
   <div class="wrap">
     <div class="exp-layout">
@@ -788,7 +429,6 @@ footer a:hover{color:var(--gold)}
   </div>
 </section>
 
-<!-- ══ PROJECTS ══ -->
 <section id="projects" class="sp">
   <div class="wrap">
     <div class="proj-header rv">
@@ -799,35 +439,22 @@ footer a:hover{color:var(--gold)}
       <div class="section-num">04</div>
     </div>
     <div class="proj-grid" id="pgrid">
-
-      <div class="proj-card rv"><div class="proj-top"><div class="proj-emoji">🏥</div><div class="proj-num">#01</div></div><div class="proj-title">Patient Re-admission Predictive Analytics</div><p class="proj-desc">ML project predicting patient readmissions — achieved 20% reduction through data-driven preventive measures using clinical history and treatment records.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">ML</span><span class="proj-tag">Healthcare</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/PortfolioProjects/blob/main/Patient%20re-admission_Predictive_Analytics.ipynb" target="_blank" onclick="gaEvent('project_click',{project:'Patient Readmission',project_num:1})">View →</a></div></div>
-
-      <div class="proj-card rv"><div class="proj-top"><div class="proj-emoji">📈</div><div class="proj-num">#02</div></div><div class="proj-title">A/B Testing for Landing Page Optimization</div><p class="proj-desc">15% lift in conversion rates and 10% drop in bounce rates through rigorous statistical hypothesis testing and user behavior analysis.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Statistics</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/PortfolioProjects/blob/main/ABTesting.ipynb" target="_blank" onclick="gaEvent('project_click',{project:'AB Testing',project_num:2})">View →</a></div></div>
-
-      <div class="proj-card rv"><div class="proj-top"><div class="proj-emoji">🐦</div><div class="proj-num">#03</div></div><div class="proj-title">Twitter Sentiment Analysis at Scale</div><p class="proj-desc">Processed 500K+ tweets with 98% efficiency using NLP transformers. Reduced analysis time by 40% enabling real-time social insights.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">NLP</span><span class="proj-tag">Transformers</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/PortfolioProjects/blob/main/Twitter%20Sentiment%20Analysis.ipynb" target="_blank" onclick="gaEvent('project_click',{project:'Twitter Sentiment',project_num:3})">View →</a></div></div>
-
-      <div class="proj-card rv hp"><div class="proj-top"><div class="proj-emoji">🤖</div><div class="proj-num">#04</div></div><div class="proj-title">Collaborative Filtering Recommendation Engine</div><p class="proj-desc">Spark MLlib ALS engine processing 2M+ interactions. Top-10 recommendations for 2M+ users with 0.87 RMSE on test set.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">PySpark</span><span class="proj-tag">MLlib</span><span class="proj-tag">ALS</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/collaborative-filtering-recommendation-engine" target="_blank" onclick="gaEvent('project_click',{project:'Collaborative Filtering',project_num:4})">View →</a></div></div>
-
-      <div class="proj-card rv hp"><div class="proj-top"><div class="proj-emoji">💳</div><div class="proj-num">#05</div></div><div class="proj-title">Credit Card Fraud Detection</div><p class="proj-desc">99.3% accuracy on 284K transactions using Decision Tree + SMOTE. Reduced fraud detection latency by 30% for real-time screening.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Decision Tree</span><span class="proj-tag">SMOTE</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/PortfolioProjects/blob/main/Credit%20Card%20Fraud%20Detection%20-%20Decision%20Tree.ipynb" target="_blank" onclick="gaEvent('project_click',{project:'Fraud Detection',project_num:5})">View →</a></div></div>
-
-      <div class="proj-card rv hp"><div class="proj-top"><div class="proj-emoji">🏠</div><div class="proj-num">#06</div></div><div class="proj-title">House Pricing — KNN & XGBoost</div><p class="proj-desc">15% accuracy improvement analyzing 50K+ rows. Pipeline handles 1M+ rows with 30% reduced runtime through advanced preprocessing.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">KNN</span><span class="proj-tag">XGBoost</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/PortfolioProjects/blob/main/House%20Pricing%20with%20KNN%20and%20XGBoost.ipynb" target="_blank" onclick="gaEvent('project_click',{project:'House Pricing',project_num:6})">View →</a></div></div>
-
-      <div class="proj-card rv hp"><div class="proj-top"><div class="proj-emoji">🍷</div><div class="proj-num">#07</div></div><div class="proj-title">Wine Quality Clustering</div><p class="proj-desc">Classified 1,000+ wine samples into quality clusters using K-Means and DBSCAN with 15% higher segmentation accuracy.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">K-Means</span><span class="proj-tag">DBSCAN</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/PortfolioProjects/blob/main/Clustering%20wine%20dataset%20with%20k-means%20and%20DBSCAN.ipynb" target="_blank" onclick="gaEvent('project_click',{project:'Wine Clustering',project_num:7})">View →</a></div></div>
-
-      <div class="proj-card rv hp"><div class="proj-top"><div class="proj-emoji">🗄️</div><div class="proj-num">#08</div></div><div class="proj-title">SQL Data Cleaning</div><p class="proj-desc">Reduced data duplication by 30% through structured SQL cleaning, standardizing raw datasets for enhanced downstream reliability.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">SQL</span><span class="proj-tag">Data Quality</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/PortfolioProjects/blob/main/SQL%20DATA%20CLEANING.sql" target="_blank" onclick="gaEvent('project_click',{project:'SQL Cleaning',project_num:8})">View →</a></div></div>
-
-      <div class="proj-card rv hp"><div class="proj-top"><div class="proj-emoji">📊</div><div class="proj-num">#09</div></div><div class="proj-title">Tableau Sales Analysis</div><p class="proj-desc">Interactive dashboards identifying sales trends — optimized product placement strategies resulting in 10% revenue increase.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">Tableau</span><span class="proj-tag">BI</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/PortfolioProjects/blob/main/tableau%20analysis%201.twbx" target="_blank" onclick="gaEvent('project_click',{project:'Tableau Sales',project_num:9})">View →</a></div></div>
-
-      <div class="proj-card rv hp"><div class="proj-top"><div class="proj-emoji">🎬</div><div class="proj-num">#10</div></div><div class="proj-title">Movie Recommendation System</div><p class="proj-desc">95% accuracy in recommendations using collaborative filtering. 70% improved search speed with optimized database queries.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Scikit-Learn</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/PortfolioProjects/blob/main/Movie%20Portfolio%20Project.ipynb" target="_blank" onclick="gaEvent('project_click',{project:'Movie Recommendations',project_num:10})">View →</a></div></div>
-
-      <div class="proj-card rv hp"><div class="proj-top"><div class="proj-emoji">🎓</div><div class="proj-num">#11</div></div><div class="proj-title">Student Management System</div><p class="proj-desc">Full-stack Spring Boot app — 25% improved data accuracy, 40% reduced admin processing time, 30% better user satisfaction.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">Java</span><span class="proj-tag">Spring Boot</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/studentmngt" target="_blank" onclick="gaEvent('project_click',{project:'Student Management',project_num:11})">View →</a></div></div>
-
+      <div class="proj-card rv"><div class="proj-top"><div class="proj-emoji">🏥</div><div class="proj-num">#01</div></div><div class="proj-title">Patient Re-admission Predictive Analytics</div><p class="proj-desc">ML project predicting patient readmissions — achieved 20% reduction through data-driven preventive measures using clinical history and treatment records.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">ML</span><span class="proj-tag">Healthcare</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/PortfolioProjects/blob/main/Patient%20re-admission_Predictive_Analytics.ipynb" target="_blank" onclick="gaEvent('project_click',{project:'Patient Readmission'})">View →</a></div></div>
+      <div class="proj-card rv"><div class="proj-top"><div class="proj-emoji">📈</div><div class="proj-num">#02</div></div><div class="proj-title">A/B Testing for Landing Page Optimization</div><p class="proj-desc">15% lift in conversion rates and 10% drop in bounce rates through rigorous statistical hypothesis testing and user behavior analysis.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Statistics</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/PortfolioProjects/blob/main/ABTesting.ipynb" target="_blank" onclick="gaEvent('project_click',{project:'AB Testing'})">View →</a></div></div>
+      <div class="proj-card rv"><div class="proj-top"><div class="proj-emoji">🐦</div><div class="proj-num">#03</div></div><div class="proj-title">Twitter Sentiment Analysis at Scale</div><p class="proj-desc">Processed 500K+ tweets with 98% efficiency using NLP transformers. Reduced analysis time by 40% enabling real-time social insights.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">NLP</span><span class="proj-tag">Transformers</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/PortfolioProjects/blob/main/Twitter%20Sentiment%20Analysis.ipynb" target="_blank" onclick="gaEvent('project_click',{project:'Twitter Sentiment'})">View →</a></div></div>
+      <div class="proj-card rv hp"><div class="proj-top"><div class="proj-emoji">🤖</div><div class="proj-num">#04</div></div><div class="proj-title">Collaborative Filtering Recommendation Engine</div><p class="proj-desc">Spark MLlib ALS engine processing 2M+ interactions. Top-10 recommendations for 2M+ users with 0.87 RMSE on test set.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">PySpark</span><span class="proj-tag">MLlib</span><span class="proj-tag">ALS</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/collaborative-filtering-recommendation-engine" target="_blank" onclick="gaEvent('project_click',{project:'Collaborative Filtering'})">View →</a></div></div>
+      <div class="proj-card rv hp"><div class="proj-top"><div class="proj-emoji">💳</div><div class="proj-num">#05</div></div><div class="proj-title">Credit Card Fraud Detection</div><p class="proj-desc">99.3% accuracy on 284K transactions using Decision Tree + SMOTE. Reduced fraud detection latency by 30% for real-time screening.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Decision Tree</span><span class="proj-tag">SMOTE</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/PortfolioProjects/blob/main/Credit%20Card%20Fraud%20Detection%20-%20Decision%20Tree.ipynb" target="_blank" onclick="gaEvent('project_click',{project:'Fraud Detection'})">View →</a></div></div>
+      <div class="proj-card rv hp"><div class="proj-top"><div class="proj-emoji">🏠</div><div class="proj-num">#06</div></div><div class="proj-title">House Pricing — KNN & XGBoost</div><p class="proj-desc">15% accuracy improvement analyzing 50K+ rows. Pipeline handles 1M+ rows with 30% reduced runtime through advanced preprocessing.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">KNN</span><span class="proj-tag">XGBoost</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/PortfolioProjects/blob/main/House%20Pricing%20with%20KNN%20and%20XGBoost.ipynb" target="_blank" onclick="gaEvent('project_click',{project:'House Pricing'})">View →</a></div></div>
+      <div class="proj-card rv hp"><div class="proj-top"><div class="proj-emoji">🍷</div><div class="proj-num">#07</div></div><div class="proj-title">Wine Quality Clustering</div><p class="proj-desc">Classified 1,000+ wine samples into quality clusters using K-Means and DBSCAN with 15% higher segmentation accuracy.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">K-Means</span><span class="proj-tag">DBSCAN</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/PortfolioProjects/blob/main/Clustering%20wine%20dataset%20with%20k-means%20and%20DBSCAN.ipynb" target="_blank" onclick="gaEvent('project_click',{project:'Wine Clustering'})">View →</a></div></div>
+      <div class="proj-card rv hp"><div class="proj-top"><div class="proj-emoji">🗄️</div><div class="proj-num">#08</div></div><div class="proj-title">SQL Data Cleaning</div><p class="proj-desc">Reduced data duplication by 30% through structured SQL cleaning, standardizing raw datasets for enhanced downstream reliability.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">SQL</span><span class="proj-tag">Data Quality</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/PortfolioProjects/blob/main/SQL%20DATA%20CLEANING.sql" target="_blank" onclick="gaEvent('project_click',{project:'SQL Cleaning'})">View →</a></div></div>
+      <div class="proj-card rv hp"><div class="proj-top"><div class="proj-emoji">📊</div><div class="proj-num">#09</div></div><div class="proj-title">Tableau Sales Analysis</div><p class="proj-desc">Interactive dashboards identifying sales trends — optimized product placement strategies resulting in 10% revenue increase.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">Tableau</span><span class="proj-tag">BI</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/PortfolioProjects/blob/main/tableau%20analysis%201.twbx" target="_blank" onclick="gaEvent('project_click',{project:'Tableau Sales'})">View →</a></div></div>
+      <div class="proj-card rv hp"><div class="proj-top"><div class="proj-emoji">🎬</div><div class="proj-num">#10</div></div><div class="proj-title">Movie Recommendation System</div><p class="proj-desc">95% accuracy in recommendations using collaborative filtering. 70% improved search speed with optimized database queries.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Scikit-Learn</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/PortfolioProjects/blob/main/Movie%20Portfolio%20Project.ipynb" target="_blank" onclick="gaEvent('project_click',{project:'Movie Recommendations'})">View →</a></div></div>
+      <div class="proj-card rv hp"><div class="proj-top"><div class="proj-emoji">🎓</div><div class="proj-num">#11</div></div><div class="proj-title">Student Management System</div><p class="proj-desc">Full-stack Spring Boot app — 25% improved data accuracy, 40% reduced admin processing time, 30% better user satisfaction.</p><div class="proj-foot"><div class="proj-tags"><span class="proj-tag">Java</span><span class="proj-tag">Spring Boot</span></div><a class="proj-link" href="https://github.com/muraliKrishnaMididoddi/studentmngt" target="_blank" onclick="gaEvent('project_click',{project:'Student Management'})">View →</a></div></div>
     </div>
     <button class="btn-ring" id="ptgl" onclick="toggleProjects()" style="font-size:.85rem;padding:12px 28px">Show all 11 projects ↓</button>
   </div>
 </section>
 
-<!-- ══ CERTIFICATIONS ══ -->
 <section id="certifications" class="sp">
   <div class="wrap">
     <div class="cert-header rv">
@@ -845,7 +472,6 @@ footer a:hover{color:var(--gold)}
   </div>
 </section>
 
-<!-- ══ EDUCATION ══ -->
 <section id="education" class="sp">
   <div class="wrap">
     <div class="rv" style="margin-bottom:48px">
@@ -868,7 +494,6 @@ footer a:hover{color:var(--gold)}
   </div>
 </section>
 
-<!-- ══ CONTACT ══ -->
 <section id="contact" class="sp">
   <div class="wrap">
     <div class="contact-wrap">
@@ -878,18 +503,10 @@ footer a:hover{color:var(--gold)}
         <p class="contact-desc">Looking for a Data or AI Engineer who actually ships? I'm open to full-time roles, contract work, and interesting collaborations.</p>
         <div class="avail"><div class="avail-dot"></div>Open to opportunities</div>
         <div class="clinks">
-          <a class="clink" href="mailto:munnummk499@gmail.com" onclick="gaEvent('contact_click',{method:'email'})">
-            <span class="cl-icon">✉️</span><div><div>munnummk499@gmail.com</div><div class="cl-label">Email</div></div>
-          </a>
-          <a class="clink" href="tel:4707224770" onclick="gaEvent('contact_click',{method:'phone'})">
-            <span class="cl-icon">📞</span><div><div>(470) 722-4770</div><div class="cl-label">Phone</div></div>
-          </a>
-          <a class="clink" href="https://linkedin.com/in/murali-krishna-data-scientist/" target="_blank" onclick="gaEvent('social_click',{platform:'linkedin',location:'contact'})">
-            <span class="cl-icon">💼</span><div><div>linkedin.com/in/murali-krishna-data-scientist</div><div class="cl-label">LinkedIn</div></div>
-          </a>
-          <a class="clink" href="https://github.com/muraliKrishnaMididoddi" target="_blank" onclick="gaEvent('social_click',{platform:'github',location:'contact'})">
-            <span class="cl-icon">🐙</span><div><div>github.com/muraliKrishnaMididoddi</div><div class="cl-label">GitHub</div></div>
-          </a>
+          <a class="clink" href="mailto:munnummk499@gmail.com" onclick="gaEvent('contact_click',{method:'email'})"><span class="cl-icon">✉️</span><div><div>munnummk499@gmail.com</div><div class="cl-label">Email</div></div></a>
+          <a class="clink" href="tel:4707224770" onclick="gaEvent('contact_click',{method:'phone'})"><span class="cl-icon">📞</span><div><div>(470) 722-4770</div><div class="cl-label">Phone</div></div></a>
+          <a class="clink" href="https://linkedin.com/in/murali-krishna-data-scientist/" target="_blank" onclick="gaEvent('social_click',{platform:'linkedin'})"><span class="cl-icon">💼</span><div><div>linkedin.com/in/murali-krishna-data-scientist</div><div class="cl-label">LinkedIn</div></div></a>
+          <a class="clink" href="https://github.com/muraliKrishnaMididoddi" target="_blank" onclick="gaEvent('social_click',{platform:'github',location:'contact'})"><span class="cl-icon">🐙</span><div><div>github.com/muraliKrishnaMididoddi</div><div class="cl-label">GitHub</div></div></a>
         </div>
       </div>
       <div class="cform-box rv">
@@ -907,17 +524,13 @@ footer a:hover{color:var(--gold)}
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <span>© 2026 Murali Krishna Mididoddi</span>
   <span>Data & AI Engineer · Boston, MA</span>
-  <a href="https://muralikrishnamididoddi.github.io/Murali_portfolio.github.io/">Portfolio</a>
+  <a href="https://muralikrishnamididoddi.github.io/Myresume/">Portfolio</a>
 </footer>
 
 <script>
-/* ═══════════════════════════════════════════════════════════════
-   CURSOR
-   ═══════════════════════════════════════════════════════════════ */
 const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
@@ -928,9 +541,6 @@ document.querySelectorAll('a,button,.proj-card,.sk-card,.fact-card').forEach(el=
   el.addEventListener('mouseleave',()=>{cur.style.transform='translate(-50%,-50%) scale(1)';cur.style.background='var(--teal)';ring.style.opacity='.5'});
 });
 
-/* ═══════════════════════════════════════════════════════════════
-   NAV
-   ═══════════════════════════════════════════════════════════════ */
 window.addEventListener('scroll',()=>{
   document.getElementById('nb').classList.toggle('sc',scrollY>60);
   document.querySelectorAll('section[id]').forEach(s=>{
@@ -943,84 +553,48 @@ const hb=document.getElementById('hb'),mm=document.getElementById('mm');
 hb.addEventListener('click',()=>mm.classList.toggle('op'));
 mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('op')));
 
-/* ═══════════════════════════════════════════════════════════════
-   SCROLL REVEAL
-   ═══════════════════════════════════════════════════════════════ */
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vi');obs.unobserve(x.target)}}),{threshold:.1});
 document.querySelectorAll('.rv,.rv-left').forEach(el=>obs.observe(el));
 
-/* ═══════════════════════════════════════════════════════════════
-   GA4 — SECTION VISIBILITY TRACKING
-   Fires a GA4 event whenever a section scrolls into view.
-   Visible in GA4 → Reports → Events → section_view
-   ═══════════════════════════════════════════════════════════════ */
-const sectionObs = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      gaEvent('section_view', {
-        section_id: entry.target.id,
-        section_name: entry.target.querySelector('h2')?.textContent?.trim()?.slice(0,40) || entry.target.id
-      });
-      sectionObs.unobserve(entry.target); // fire once per section
+// GA4 — section view tracking
+const sectionObs=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      gaEvent('section_view',{section_id:entry.target.id});
+      sectionObs.unobserve(entry.target);
     }
   });
-}, { threshold: 0.3 });
-document.querySelectorAll('section[id]').forEach(s => sectionObs.observe(s));
+},{threshold:0.3});
+document.querySelectorAll('section[id]').forEach(s=>sectionObs.observe(s));
 
-/* ═══════════════════════════════════════════════════════════════
-   GA4 — SCROLL DEPTH TRACKING
-   Fires at 25%, 50%, 75%, 100% scroll depth.
-   Visible in GA4 → Reports → Events → scroll_depth
-   ═══════════════════════════════════════════════════════════════ */
-const depths = [25, 50, 75, 100];
-const fired = new Set();
-window.addEventListener('scroll', () => {
-  const pct = Math.round((scrollY / (document.body.scrollHeight - innerHeight)) * 100);
-  depths.forEach(d => {
-    if (pct >= d && !fired.has(d)) {
-      fired.add(d);
-      gaEvent('scroll_depth', { depth_percent: d });
-    }
-  });
-}, { passive: true });
+// GA4 — scroll depth
+const depths=[25,50,75,100],fired=new Set();
+window.addEventListener('scroll',()=>{
+  const pct=Math.round((scrollY/(document.body.scrollHeight-innerHeight))*100);
+  depths.forEach(d=>{if(pct>=d&&!fired.has(d)){fired.add(d);gaEvent('scroll_depth',{depth_percent:d});}});
+},{passive:true});
 
-/* ═══════════════════════════════════════════════════════════════
-   GA4 — TIME ON PAGE TRACKING
-   Fires at 30s, 60s, 120s, 300s.
-   Visible in GA4 → Reports → Events → time_on_page
-   ═══════════════════════════════════════════════════════════════ */
-[30, 60, 120, 300].forEach(s => {
-  setTimeout(() => gaEvent('time_on_page', { seconds: s }), s * 1000);
-});
+// GA4 — time on page
+[30,60,120,300].forEach(s=>setTimeout(()=>gaEvent('time_on_page',{seconds:s}),s*1000));
 
-/* ═══════════════════════════════════════════════════════════════
-   MARQUEE
-   ═══════════════════════════════════════════════════════════════ */
+// Marquee
 (function(){
   const items=['Apache Spark','Databricks','Snowflake','Azure','AWS','Python','SQL','Delta Lake','dbt','Power BI','ML / AI','GenAI','NLP','PySpark','Airflow','Tableau'];
   const t=document.getElementById('mqinner');
   [...items,...items].forEach(i=>{const d=document.createElement('div');d.className='marquee-item';d.textContent=i;t.appendChild(d);});
 })();
 
-/* ═══════════════════════════════════════════════════════════════
-   PROJECT TOGGLE
-   ═══════════════════════════════════════════════════════════════ */
+// Projects toggle
 let po=false;
 function toggleProjects(){
   po=!po;
   document.getElementById('pgrid').classList.toggle('sa',po);
   document.getElementById('ptgl').textContent=po?'Show fewer ↑':'Show all 11 projects ↓';
-  if(po){
-    document.querySelectorAll('.hp').forEach(el=>{if(!el.classList.contains('vi'))obs.observe(el)});
-    gaEvent('projects_expanded', { action: 'show_all' });
-  } else {
-    gaEvent('projects_expanded', { action: 'show_fewer' });
-  }
+  if(po){document.querySelectorAll('.hp').forEach(el=>{if(!el.classList.contains('vi'))obs.observe(el)});gaEvent('projects_expanded',{action:'show_all'});}
+  else{gaEvent('projects_expanded',{action:'show_fewer'});}
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   CONTACT FORM
-   ═══════════════════════════════════════════════════════════════ */
+// Contact form
 document.getElementById('cform').addEventListener('submit',function(e){
   e.preventDefault();
   const btn=document.getElementById('csb'),al=document.getElementById('cfa'),fd=new FormData(this);
@@ -1028,68 +602,32 @@ document.getElementById('cform').addEventListener('submit',function(e){
   const sub=`Portfolio inquiry — ${fd.get('name')}`;
   const body=`Hi Murali,%0D%0A%0D%0AName: ${encodeURIComponent(fd.get('name'))}%0D%0AEmail: ${encodeURIComponent(fd.get('email'))}%0D%0A%0D%0A${encodeURIComponent(fd.get('message'))}`;
   window.location.href=`mailto:munnummk499@gmail.com?subject=${encodeURIComponent(sub)}&body=${body}`;
-
-  // Track contact form submission in GA4
-  gaEvent('contact_form_submit', {
-    has_message: fd.get('message').length > 0
-  });
-
+  gaEvent('contact_form_submit',{has_message:fd.get('message').length>0});
   al.className='cfa s sh';al.textContent='✓ Your email app should open — send it from there!';
   this.reset();btn.disabled=false;btn.textContent='Send it →';
   setTimeout(()=>al.classList.remove('sh'),6000);
 });
 
-/* ═══════════════════════════════════════════════════════════════
-   PROFILE VIEW COUNTER
-   ─────────────────────────────────────────────────────────────
-   How it works:
-   1. The hidden <img id="hits-pixel"> above registers the hit
-      on hits.seeyoufarm.com on every real page load.
-   2. We separately fetch the JSON count endpoint to get the
-      number and display it in the hero ticker.
-   3. REPLACE the repo slug below (2 places) with your actual
-      GitHub Pages repo name before deploying.
-
-   Your repo URL format:
-     https://hits.seeyoufarm.com/api/count/get/
-       ?url=https://YOUR_USERNAME.github.io/YOUR_REPO
-       &title=views
-
-   After replacing: push to GitHub and the counter is live.
-   ═══════════════════════════════════════════════════════════════ */
-(async function loadViewCount() {
-  const vcEl = document.getElementById('vc');
-  // ↓ REPLACE with your actual GitHub Pages URL (same as the img src above)
-  const encodedUrl = encodeURIComponent(
-    'https://muraliKrishnaMididoddi.github.io/Murali_portfolio.github.io'
-  );
-  const apiUrl = `https://hits.seeyoufarm.com/api/count/get?url=${encodedUrl}&title=views`;
-
-  try {
-    const res = await fetch(apiUrl);
-    if (!res.ok) throw new Error('fetch failed');
-    const data = await res.json();
-
-    // data.total_count = all-time views, data.today_count = today
-    const total = parseInt(data.total_count, 10);
-    if (!isNaN(total)) {
-      // Animate count up from 0
-      let start = 0;
-      const duration = 1200;
-      const step = Math.ceil(total / (duration / 16));
-      const timer = setInterval(() => {
-        start = Math.min(start + step, total);
-        vcEl.textContent = start.toLocaleString();
-        if (start >= total) clearInterval(timer);
-      }, 16);
-
-      // Also send to GA4 so you can track growth over time
-      gaEvent('portfolio_view_count', { total_views: total, today_views: parseInt(data.today_count, 10) || 0 });
+// View counter
+(async function(){
+  const vcEl=document.getElementById('vc');
+  const encodedUrl=encodeURIComponent('https://muralikrishnamididoddi.github.io/Myresume');
+  try{
+    const res=await fetch(`https://hits.seeyoufarm.com/api/count/get?url=${encodedUrl}&title=views`);
+    if(!res.ok)throw new Error();
+    const data=await res.json();
+    const total=parseInt(data.total_count,10);
+    if(!isNaN(total)){
+      let start=0;
+      const step=Math.ceil(total/(1200/16));
+      const timer=setInterval(()=>{
+        start=Math.min(start+step,total);
+        vcEl.textContent=start.toLocaleString();
+        if(start>=total)clearInterval(timer);
+      },16);
+      gaEvent('portfolio_view_count',{total_views:total,today_views:parseInt(data.today_count,10)||0});
     }
-  } catch (err) {
-    // Silently fail — counter just shows the em dash placeholder
-    // Don't console.error in production
-  }
+  }catch(e){}
 })();
 </script>
 </body>
